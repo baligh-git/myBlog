@@ -1,0 +1,14 @@
+
+ - SEARCH for title, content
+
+
+/* insensitive - not exact match*/
+SELECT * FROM myblogC3.post where is_visible=TRUE AND (title REGEXP  'RISO' OR content REGEXP  'RISO');
+/* sensitive - not exact match*/
+SELECT * FROM myblogC3.post where is_visible=TRUE AND (title REGEXP BINARY 'RISO' OR content REGEXP BINARY 'RISO');
+/* insensitive - exact match*/
+SELECT * FROM myblogC3.post where is_visible=true AND (title REGEXP '\\bRIsO\\b' OR content REGEXP '\\brISO\\b');
+/* sensitive - exact match*/
+SELECT * FROM myblogC3.post where is_visible=true AND (title REGEXP BINARY '\\bRISO\\b' OR content REGEXP BINARY '\\bRISO\\b');
+
+ 
